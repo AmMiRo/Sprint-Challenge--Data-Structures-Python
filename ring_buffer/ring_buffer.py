@@ -1,9 +1,14 @@
 class RingBuffer:
     def __init__(self, capacity):
-        pass
+        self.capacity = capacity
+        self.i_count = 0
+        self.buff = [None]*capacity
 
     def append(self, item):
-        pass
+        self.buff[self.i_count] = item
+        self.i_count += 1
+        if self.i_count == self.capacity:
+            self.i_count = 0
 
     def get(self):
-        pass
+        return [item for item in self.buff if item != None]
